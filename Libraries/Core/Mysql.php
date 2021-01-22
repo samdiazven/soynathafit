@@ -57,9 +57,9 @@
         public function delete(string $query)
         {
             $this->strQuery = $query;
-            $result - $this->connection->prepare($this->strQuery);
-            $result->execute();
-            return $result;
+            $result = $this->connection->prepare($this->strQuery);
+            $resData = $result->execute();
+            return $resData;
         }
     }
 ?>

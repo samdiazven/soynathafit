@@ -1,17 +1,17 @@
 <?php 
     headerAdmin($data); 
-    getModal('agregarEjercicioMod', $data);
+    getModal('prototypeMod', $data);
 ?>
     <main class="app-content">
         <div class="app-title">
             <div>
             <h1><i class="fa fa-dashboard"></i> <?=$data['page_title'];?>
-            <button class="btn btn-primary" type="button" onClick="openModalCrearEjercicio();" ><i class="fa fa-plus-circle"></i> Nueva</button>
+            <button class="btn btn-primary" type="button" onClick="openModal();" ><i class="fa fa-plus-circle">Nuevo</i> </button>
             </h1>
             </div>
             <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-            <li class="breadcrumb-item"><a href="<?= base_url();?>/Entrenador/ejercicio">Ejercicios</a></li>
+            <li class="breadcrumb-item"><a href="<?= base_url();?>/Prototype/prototype">Prototipos</a></li>
             </ul>
         </div>
        
@@ -20,13 +20,12 @@
             <div class="tile">
                 <div class="tile-body">
                 <div class="table-responsive">
-                    <table class="table table-hover table-bordered" id="tablaEjercicios">
+                    <table class="table table-hover table-bordered" id="tablaPrototipos">
                     <thead>
                         <tr>
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Descripcion</th>
-                        <th>Url</th>
                         <th>Acciones</th>
                         </tr>
                     </thead>

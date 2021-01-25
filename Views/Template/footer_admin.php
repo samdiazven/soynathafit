@@ -10,6 +10,11 @@
     <script src="<?=media();?>/js/functions_admin.js"></script>
     <!-- The javascript plugin to display page loading on top-->
     <?php 
+      if($data['js'] === "Usuarios"){
+        ?>
+          <script src="<?=media();?>/js/functions_usuarios.js"></script>
+        <?php
+      }
       if($data['js'] == "Entrenador"){
         ?>
           <script src="<?=media();?>/js/functions_ejercicios.js"></script>
@@ -20,9 +25,10 @@
           <script src="<?=media();?>/js/functions_prototype.js"></script>
         <?php
       }
-      if($data['js'] == "Rutinas"){
+      if($data['js'] === "Rutinas"){
         ?>
           <script src="<?=media();?>/js/functions_rutinas.js"></script>
+          <script type="text/javascript" src="<?=media();?>/js/plugins/select2.min.js"></script>
         <?php
       }
     ?>

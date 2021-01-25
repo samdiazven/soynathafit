@@ -10,49 +10,40 @@
       </div>
       <div class="modal-body">
         <div class="tile-body">
-              <form>
+              <form id="formRoutine" name="formRoutine">
                 <div class="form-group">
-                  <label class="control-label">Name</label>
-                  <input class="form-control" type="text" placeholder="Enter full name">
+                  <label class="control-label">Nombre</label>
+                  <input class="form-control" type="text" id="name" name="name" placeholder="Ingrese el nombre de la Rutina">
                 </div>
                 <div class="form-group">
-                  <label class="control-label">Email</label>
-                  <input class="form-control" type="email" placeholder="Enter email address">
+                  <label class="control-label">Descripci&oacute;n</label>
+                  <textarea name="description" id="description" class="form-control" cols="30" rows="10"></textarea>
                 </div>
                 <div class="form-group">
-                  <label class="control-label">Address</label>
-                  <textarea class="form-control" rows="4" placeholder="Enter your address"></textarea>
+                  <label class="control-label">Prototipo</label>
+                  <select name="idPrototype" id="prototypeSelect" class="form-control">
+                    <option value="0">----Seleccione una Opcion------</option>
+                  </select>
                 </div>
                 <div class="form-group">
-                  <label class="control-label">Gender</label>
-                  <div class="form-check">
+                  <label class="control-label">Semana</label>
+                  <select name="week" id="weekSelect" class="form-control">
+                    <option value="0">Semana 1</option>
+                    <option value="1">Semana 2</option>
+                    <option value="2">Semana 3</option>
+                    <option value="3">Semana 4</option>
+                    <option value="4">Semana 5</option>
+                    <option value="5">Semana 6</option>
+                  </select>
+                </div>
+                
+                <div class="form-group">
                     <label class="form-check-label">
-                      <input class="form-check-input" type="radio" name="gender">Male
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="radio" name="gender">Female
-                    </label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="control-label">Identity Proof</label>
-                  <input class="form-control" type="file">
-                </div>
-                <div class="form-group">
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox">I accept the terms and conditions
-                    </label>
-                  </div>
+                    <button class="btn btn-primary" type="submit">Guardar Datos</button>
+                    <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 </div>
               </form>
          </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

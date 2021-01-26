@@ -3,7 +3,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="addExerciseByRoutine">Nuevo Usuario</h5>
+        <h5 class="modal-title" id="titleModal">Nuevo Usuario</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -40,7 +40,7 @@
               
               <div class="form-group">
                   <label class="form-check-label">
-                  <button class="btn btn-primary" type="submit">Guardar Datos</button>
+                  <button class="btn btn-primary" type="submit" id="btnForm"><span id="btnModal">Guardar Datos</span></button>
                   <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
               </div>
           </form>

@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group">
                   <label class="control-label">Dia</label>
-                  <select name="day" id="weekSelect" class="form-control">
+                  <select name="day" id="daySelect" class="form-control">
                     <option value="0">Lunes</option>
                     <option value="1">Martes </option>
                     <option value="2">Miercoles </option>

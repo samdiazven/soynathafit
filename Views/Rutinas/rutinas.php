@@ -2,6 +2,7 @@
     headerAdmin($data); 
     getModal('agregarRutinaMod', $data);
     getModal('modalEjercicio', $data);
+    getModal('modalVideo', $data);
 ?>
     <main class="app-content">
       <div class="app-title">
@@ -28,13 +29,13 @@
           <div class="tile">
             <div class="mailbox-controls">
               <div class="animated-checkbox" >
-                <h2 id="titleRoutine">Rutina de Perdida</h2>
-                <h3 style="color:red;" id="titleDay">Lunes</h3>
+                <h2 id="titleRoutine">Seleccione una Rutina</h2>
+                <h3 style="color:red;" id="titleDay"></h3>
               </div>
               <div class="btn-group">
-                <button class="btn btn-primary btn-sm" type="button" onclick="changeDay('rest');" ><i class="fa fa-reply"></i></button>
+                <button class="btn btn-primary btn-sm disabled" type="button" id="btnBackward" onclick="changeDay('rest');" ><i class="fa fa-reply"></i></button>
                 <button class="btn btn-primary btn-sm disabled" id="btnAgregar" value="disable" onclick="addExercise();" type="button"><i class="fa fa-plus"></i></button>
-                <button class="btn btn-primary btn-sm" type="button" onclick="changeDay('add')"><i class="fa fa-share"></i></button>
+                <button class="btn btn-primary btn-sm disabled" type="button" id="btnForward" onclick="changeDay('add')"><i class="fa fa-share"></i></button>
               </div>
             </div>
             <div class="table-responsive mailbox-messages">

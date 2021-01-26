@@ -1,33 +1,30 @@
-window.onload = function loadListRoutines() {
+const selectRoutine = id => {
     let title = document.querySelector('#titleRoutine');
     let titleDay = document.querySelector('#titleDay');
     let day = Number(document.querySelector('#dayOfWeek').value);
     if(!day) day = 0;
-    const allRoutines = document.querySelectorAll('.btnRoutine');
-    allRoutines.forEach(function(allRoutines){
-        allRoutines.addEventListener('click', function(){
-            const id = this.getAttribute('rel');
-            const urlRequest = `http://localhost/soynathafit/Rutinas/getRoutine/${id}`;
-            fetch(urlRequest)
-            .then(response => response.text())
-            .then(data => JSON.parse(data))
-            .then(data => {
-                title.innerHTML = `${data.data.name}`;
-                titleDay.innerHTML = 'Lunes';
-                getExercises(id, day);
-                document.querySelector('#btnAgregar').classList.replace('disabled', 'enabled');
-                document.querySelector('#btnAgregar').value = id;
-                document.querySelector('#dayOfweek').value = day;
-                document.querySelector('#idRoutine').value = id;
-                
-            });
-        });
-    });
-}
+    const urlRequest = `http://localhost/soynathafit/Rutinas/getRoutine/${id}`;
+    fetch(urlRequest)
+    .then(response => response.text())
+    .then(data => JSON.parse(data))
+    .then(data => {
+        title.innerHTML = `${data.data.name}`;
+        getNameDay(day);
+        getExercises(id, day);
+        document.querySelector('#btnAgregar').classList.replace('disabled', 'enabled');
+        document.querySelector('#btnAgregar').value = id;
+        document.querySelector('#dayOfweek').value = day;
+        document.querySelector('#idRoutine').value = id;
+
+    })
+};
+
 ///Agregar Ejercicio
 const addExercise = () => {
     let urlExercises = 'http://localhost/soynathafit/Entrenador/obtenerEjercicios';
     let btnValue = document.querySelector('#btnAgregar').value;
+    let day = Number(document.querySelector('#dayOfWeek').value);
+    let selectDay = document.querySelector('#daySelect').value = day;
     if(btnValue === 'disable') return;
     $('#modalEjercicio').modal('show');
     fetch(urlExercises)
@@ -91,13 +88,19 @@ const getExercises = (idRoutine, day) => {
                     <td ><b>${exercise.name}</b></td>
                     <td >${exercise.description}</td>
                     <td>${exercise.mode}</td>
-                    <td><button id="#btnVideo" onclick="openVideo(${exercise.id_ejercicio});" class="btn btn-success btn-sm">VER</button></td>
+                    <td><button id="#btnVideo" onclick="openVideo('${exercise.uri}');" class="btn btn-success btn-sm">VER</button></td>
                     <td><button id="#btnDelete" onclick="deleteExercise(${exercise.idER});" class="btn btn-danger btn-sm">ELIMINAR</button></td>
                     </tr>
                     `;
         });
         tbody.innerHTML = tr;
     });
+}
+const openVideo = url => {
+    console.log(url);
+    $('#modalVideo').modal('show');
+    $('#modalVideo iframe').attr('src', url);
+
 }
 const deleteExercise = id => {
     let dayOfWeek = document.querySelector('#dayOfweek').value 
@@ -196,9 +199,19 @@ form.addEventListener('submit', function(e){
 ////CHANGE DAY
 const changeDay = condition => {
     let dayOfWeek = document.querySelector('#dayOfWeek');
-    let idRoutine = document.querySelector('#idRoutine').value;
+    const idRoutine = document.querySelector('#idRoutine').value;
     let day = Number(dayOfWeek.value);
     if(!day) day = 0;
+    if(day == 5){
+        document.querySelector('#btnForward').classList.replace('enabled', 'disabled');
+    }else{
+        document.querySelector('#btnForward').classList.replace('disabled', 'enabled');
+    }
+    if(day == 1){
+        document.querySelector('#btnBackward').classList.replace('enabled', 'disabled');
+    } else{
+        document.querySelector('#btnBackward').classList.replace('disabled', 'enabled');
+    }
     if(condition === 'add'){
         if(day == 6) return;
         day = day + 1;

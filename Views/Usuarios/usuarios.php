@@ -6,7 +6,7 @@
         <div class="app-title">
             <div>
             <h1><i class="fa fa-dashboard"></i> <?=$data['page_title'];?>
-            <button class="btn btn-primary" type="button" onClick="openModal();" ><i class="fa fa-plus-circle">Nuevo</i> </button>
+            <button class="btn btn-primary" type="button" onClick="addUser();" ><i class="fa fa-plus-circle">Nuevo</i> </button>
             </h1>
             </div>
             <ul class="app-breadcrumb breadcrumb">
@@ -27,6 +27,7 @@
                         <th>Nombre</th>
                         <th>Email</th>
                         <th>Status</th>
+                        <th>Rol</th>
                         <th>Acciones</th>
                         </tr>
                     </thead>

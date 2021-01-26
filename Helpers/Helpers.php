@@ -53,5 +53,25 @@
         $view_modal = "Views/Template/Modals/{$name}.php";
         require_once($view_modal);
     }
+    function getRole($role){
+        switch ($role)
+        {
+            case 1:
+                return 'Cliente';
+                break;
+            case 2: 
+                return 'Nutricionista';
+                break;
+            case 3:
+                return 'Entrenador';
+                break;
+            case 4:
+                return 'Administrador';
+                break;
+            case 5:
+                return 'Master';
+                break;
+        }
+    }
     
 ?>

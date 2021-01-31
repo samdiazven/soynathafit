@@ -34,12 +34,54 @@ $(document).ready(function() {
     });
     $('#tablaUsuarios').DataTable();
 });
+const getUser = id => {
+    const request = fetch(`${base_url}/Usuarios/getUserById/${id}`)
+    .then(res => res.text())
+    .then(res => JSON.parse(res))
+    .then( res => {
+        return res.data;
+    });
+    return request;
+}
+const editUser = async id => {
+    const user = await getUser(id);
+    document.querySelector('#idUser').value = "";
+    document.querySelector('#btnModal').innerHTML = "Actualizar";
+    document.querySelector('#titleModal').innerHTML = "Editar Usuario";
+    document.querySelector('#btnForm').classList.replace('btn-primary', 'btn-info');
+    document.querySelector('#name').value = user.name;
+    document.querySelector('#email').value = user.email;
+    document.querySelector('#role').value = user.role;
 
-const editUser = id => console.log(id);
+    $('#modalUsuarios').modal('show');
+    const form = document.querySelector('#formUsuarios');
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        const urlCreate = `${base_url}/Usuarios/updateUser/${id}`;
+        const formData = new FormData(form);
+        fetch(urlCreate, {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.text())
+        .then(res => JSON.parse(res))
+        .then(objData => {
+            if(objData.status)
+            {
+                swal('Usuario', objData.msg, 'success');
+                $('#modalUsuarios').modal('hide');
+                tablaUsuarios.api().ajax.reload();
+            }
+            else{
+                swal('ERROR', objData.msg, "error");
+            }
+        });
+    });
+}
 
 const addUser = () => {
     openModal();
-    const form = document.getElementById('#formUsuario');
+    const form = document.querySelector('#formUsuarios');
     form.addEventListener('submit', e => {
         e.preventDefault();
         const urlCreate = `${base_url}/Usuarios/createUser`;
@@ -54,6 +96,7 @@ const addUser = () => {
             if(objData.status)
             {
                 swal('Usuario', objData.msg, 'success');
+                $('#modalUsuarios').modal('hide');
                 tablaUsuarios.api().ajax.reload();
             }
             else{
@@ -61,4 +104,41 @@ const addUser = () => {
             }
         });
     });
+}
+const deleteUser = id => {
+    swal({
+        title: "Eliminar Usuario",
+        text: "Realmente desea eliminar el Usuario?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Si, eliminar!",
+        cancelButtonText: "No, cancelar!",
+        closeOnConfirm: false,
+        closeOnCancel: true
+    }, function(isConfirm) {
+        if(isConfirm)
+        {
+            fetch(`${base_url}/Usuarios/deleteUser/${id}`)
+            .then( res => res.text())
+            .then( res => JSON.parse(res))
+            .then(data => {
+                if(data.status)
+                {
+                    swal("Usuario", data.msg, "success");
+                    tablaUsuarios.api().ajax.reload();
+                }else{
+                    swal("ERROR", data.msg, "error");
+                }
+            });
+        }
+    });
+}
+const viewUser =  async id => {
+    const user = await getUser(id);
+    document.querySelector('#nameUser').innerHTML = user.name;
+    document.querySelector('#emailUser').innerHTML = user.email;
+    document.querySelector('#enableUser').innerHTML = (user.enable == 1) ? 'Habilitado' : 'Inhabilitado';
+    document.querySelector('#nameUser').innerHTML = user.name;
+    document.querySelector('#nameUser').innerHTML = user.name;
+    $('#viewUserMod').modal('show');
 }

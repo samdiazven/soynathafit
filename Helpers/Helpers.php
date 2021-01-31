@@ -60,10 +60,10 @@
                 return 'Cliente';
                 break;
             case 2: 
-                return 'Nutricionista';
+                return 'Entrenador';
                 break;
             case 3:
-                return 'Entrenador';
+                return 'Nutricionista';
                 break;
             case 4:
                 return 'Administrador';

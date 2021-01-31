@@ -1,6 +1,7 @@
 <?php 
     headerAdmin($data); 
     getModal('usuariosMod', $data);
+    getModal('viewusermod', $data);
 ?>
     <main class="app-content">
         <div class="app-title">

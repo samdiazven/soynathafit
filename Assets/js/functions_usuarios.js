@@ -138,7 +138,5 @@ const viewUser =  async id => {
     document.querySelector('#nameUser').innerHTML = user.name;
     document.querySelector('#emailUser').innerHTML = user.email;
     document.querySelector('#enableUser').innerHTML = (user.enable == 1) ? 'Habilitado' : 'Inhabilitado';
-    document.querySelector('#nameUser').innerHTML = user.name;
-    document.querySelector('#nameUser').innerHTML = user.name;
     $('#viewUserMod').modal('show');
 }

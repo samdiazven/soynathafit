@@ -45,9 +45,7 @@
                 $firstRequest = $this->model->getUserByEmail($email, $role);
                 if(!empty($firstRequest)){
                     $arrData = array('status' => false, 'msg' => 'El usuario ya Existe');
-
                 }else{
-
                     $request = $this->model->createUser($name, $email, $role, $enable);
                     if($request > 0)
                     {
@@ -105,4 +103,5 @@
         }
         
     }
+
 ?>

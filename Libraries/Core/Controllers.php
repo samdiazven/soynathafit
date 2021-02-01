@@ -1,5 +1,7 @@
 <?php 
-    class Controllers
+require 'Mailer.php';
+
+    class Controllers 
     {
         public function __construct()
         {

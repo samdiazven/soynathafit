@@ -8,19 +8,18 @@
     {
         $format = print_r('<pre>');
         $format .= print_r($data);
-        $format .= print_r('<pre>');
+        $format .= print_r('</pre>');
         return $format;
     }
-    function passGenerator($length = 10)
+    function passGenerator()
     {
         $pass = "";
-        $longitudPass = $length;
+        $longitudPass = 10;
         $cadena = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
         $longitudCadena = strlen($cadena);
         for( $i=1; $i<$longitudPass; $i++)
         {
-            $pos = rand(0, $longitudCadena - 1);
-            $pass = substr($cadena, $pos, 1);
+            $pass .= $cadena[rand(0, $longitudCadena - 1)];
         }
         return $pass;
     }
@@ -53,7 +52,7 @@
         $view_modal = "Views/Template/Modals/{$name}.php";
         require_once($view_modal);
     }
-    function getRole($role){
+    function getRole(int $role){
         switch ($role)
         {
             case 1:

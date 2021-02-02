@@ -19,14 +19,15 @@
             $select = $this->selectAll($sql);
             return $select;
         }
-        public function createUser(string $name, string $email, int $role, int $enable)
+        public function createUser(string $name, string $email, int $role, int $enable, string $pass)
         {
             $this->strName = $name;
             $this->strEmail = $email;
             $this->intRole = $role;
             $this->intEnable = $enable;
-            $sql = "INSERT INTO usuarios (name, email, role, enable) VALUES (?, ?, ?, ?)";
-            $array = array($this->strName, $this->strEmail, $this->intRole, $this->intEnable);
+            $this->strPassword = $pass;
+            $sql = "INSERT INTO usuarios (name, email, role, enable, password) VALUES (?, ?, ?, ?, ?)";
+            $array = array($this->strName, $this->strEmail, $this->intRole, $this->intEnable, $this->strPassword);
             $request = $this->insert($sql, $array);
             return $request;
         }

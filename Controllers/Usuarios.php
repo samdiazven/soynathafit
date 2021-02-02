@@ -4,6 +4,10 @@
         public function __construct()
         {
             parent::__construct();   
+            session_start();
+            if(empty($_SESSION['login'])){
+                header('location: '.base_url().'/Auth/login');
+            }
         }
         public function usuarios()
         {
@@ -46,10 +50,12 @@
                 if(!empty($firstRequest)){
                     $arrData = array('status' => false, 'msg' => 'El usuario ya Existe');
                 }else{
-                    $request = $this->model->createUser($name, $email, $role, $enable);
+                    $password = passGenerator();
+                    $passHash = hash("SHA256", $password);
+                    $request = $this->model->createUser($name, $email, $role, $enable, $passHash);
                     if($request > 0)
                     {
-                        $arrData = array('status' => true, 'msg' => 'Creado satisfactoriamente');
+                        $arrData = array('status' => true, 'msg' => 'Creado satisfactoriamente', 'pass' => $password);
                     }else{
                         $arrData = array('status' => false, 'msg' => 'Ooops Hubo un error');
                     }

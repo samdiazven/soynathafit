@@ -4,6 +4,11 @@
         public function __construct()
         {
             parent::__construct();
+
+            session_start();
+            if(empty($_SESSION['login'])){
+                header('location: '.base_url().'/Auth/login');
+            }
         }
         public function dashboard()
         {

@@ -1,6 +1,5 @@
 <script>
   const base_url = "<?= base_url(); ?>";
-  const asd = "asd";
 </script>
     <!-- Essential javascripts for application to work-->
     <script src="<?=media();?>/js/jquery-3.3.1.min.js"></script>
@@ -29,6 +28,11 @@
         ?>
           <script src="<?=media();?>/js/functions_rutinas.js"></script>
           <script type="text/javascript" src="<?=media();?>/js/plugins/select2.min.js"></script>
+        <?php
+      }
+      if($data['js'] === "Auth") {
+        ?>
+          <script src="<?=media();?>/js/functions_auth.js"></script>
         <?php
       }
     ?>

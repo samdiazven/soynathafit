@@ -5,10 +5,12 @@
         {
             parent::__construct();
         }
-        public function sendMail()
+        public function sendMail($params)
         {
+            $explode = explode(',',  $params);
+            dep($explode);
             $mail = new Mailer();
-            $mail->sendMail();
+            $mail->sendMail($explode[0], $explode[1]);
         }
     }
 

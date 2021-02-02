@@ -84,6 +84,7 @@ const addUser = () => {
     const form = document.querySelector('#formUsuarios');
     form.addEventListener('submit', e => {
         e.preventDefault();
+        let email = document.querySelector('#email').value;
         const urlCreate = `${base_url}/Usuarios/createUser`;
         const formData = new FormData(form);
         fetch(urlCreate, {
@@ -98,6 +99,7 @@ const addUser = () => {
                 swal('Usuario', objData.msg, 'success');
                 $('#modalUsuarios').modal('hide');
                 tablaUsuarios.api().ajax.reload();
+                sendMail(email, objData.pass);
             }
             else{
                 swal('ERROR', objData.msg, "error");
@@ -139,4 +141,10 @@ const viewUser =  async id => {
     document.querySelector('#emailUser').innerHTML = user.email;
     document.querySelector('#enableUser').innerHTML = (user.enable == 1) ? 'Habilitado' : 'Inhabilitado';
     $('#viewUserMod').modal('show');
+}
+
+const sendMail = (emailText, password) => {
+    fetch(`${base_url}/Mail/sendMail/${emailText}/${password}`)
+    .then(x => console.log('Enviado'))
+    .catch(e => console.log(`Hubo un error ${e}`));
 }

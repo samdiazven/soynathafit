@@ -15,7 +15,7 @@ require 'Mail/SMTP.php';
         {
             parent::__construct(true);
         }
-        public function sendMail()
+        public function sendMail($mail, $pass)
         {
             try {
                 //Server settings
@@ -29,7 +29,7 @@ require 'Mail/SMTP.php';
 
                 //Recipients
                 $this->setFrom('samueldiazven.sd@gmail.com', 'Samuel Diaz');
-                $this->addAddress('samueldiazkoc@gmail.com');     // Add a recipient
+                $this->addAddress($mail);     // Add a recipient
                 // $this->addAddress('ellen@example.com');               // Name is optional
                 // $this->addReplyTo('info@example.com', 'Information');
                 // $this->addCC('cc@example.com');
@@ -42,7 +42,7 @@ require 'Mail/SMTP.php';
                 // Content
                 $this->isHTML(true);                                  // Set email format to HTML
                 $this->Subject = 'Here is the subject';
-                $this->Body    = 'This is the HTML message body <b>in bold!</b>';
+                $this->Body    = 'This is the HTML message body <b>password: '.$pass.'!</b>';
                 $this->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
                 $this->send();

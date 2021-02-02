@@ -62,5 +62,13 @@
             $request = $this->select($select);
             return $request;
         }
+        public function addPrototypeTrainer(int $id, int $proto) {
+            $this->intPrototype = $proto;
+            $this->intId = $id;
+            $update = "UPDATE usuarios set id_prototype = ? WHERE id = $this->intId";
+            $array = array($this->intPrototype);
+            $request = $this->update($update, $array);
+            return $request;
+        }
     }
 ?>

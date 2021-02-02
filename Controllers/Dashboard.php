@@ -16,8 +16,12 @@
             $data['page_tag'] = "Dashboard-SoyNathafit";
             $data['page_title'] = "Dashboard-SoyNathafit";
             $data['page_name'] = "Dashboard";
-            $data['esteban'] = 'esteban';
-            $this->views->getView($this, "dashboard", $data);
+            $data['js'] = 'Dashboard';
+            if($_SESSION['userData']['role'] == 1) {
+                $this->views->getView($this, "dashboard_client", $data);
+            }else{
+                $this->views->getView($this, "dashboard_admin", $data);
+            }
         }
         
    }

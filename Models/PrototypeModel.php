@@ -65,5 +65,11 @@
             
             return $response;
         }
+        public function getUsers()
+        {
+            $sql = "SELECT * FROM usuarios WHERE enable = 1 AND role = 1";
+            $request = $this->selectAll($sql);
+            return $request;
+        }
     }
 ?>

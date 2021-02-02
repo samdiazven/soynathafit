@@ -56,7 +56,7 @@
         switch ($role)
         {
             case 1:
-                return 'Cliente';
+                return 'Usuario';
                 break;
             case 2: 
                 return 'Entrenador';

@@ -12,7 +12,7 @@
                 <ul class="list-group">
                     <li class="list-group-item"> <b>Nombre: <span id="nameUser"></span></b> </li>
                     <li  class="list-group-item"> <b>Email: <span id="emailUser"></span></b> </li>
-                    <li class="list-group-item"> <b>Hablitado: <span id="enableUser"></span></b> </li>
+                    <li class="list-group-item"> <b>Status: <span id="enableUser"></span></b> </li>
                 </ul>
             </div>
         </div>

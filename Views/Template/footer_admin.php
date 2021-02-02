@@ -14,7 +14,7 @@
           <script src="<?=media();?>/js/functions_usuarios.js"></script>
         <?php
       }
-      if($data['js'] == "Entrenador"){
+      if($data['js'] === "Entrenador"){
         ?>
           <script src="<?=media();?>/js/functions_ejercicios.js"></script>
         <?php
@@ -33,6 +33,22 @@
       if($data['js'] === "Auth") {
         ?>
           <script src="<?=media();?>/js/functions_auth.js"></script>
+        <?php
+      }
+      if($data['js'] === "Dashboard"){
+        ?>
+          <script src="<?=media();?>/js/functions_dashboard.js"></script>
+        <?php
+      }
+      if($data['js'] === "Client"){
+        ?>
+          <script src="<?=media();?>/js/functions_client.js"></script>
+        <?php
+      }
+      if($data['js'] === 'ADDPROTOTYPE'){
+        ?>
+          <script src="<?=media();?>/js/functions_add_prototype.js"></script>
+          <script type="text/javascript" src="<?=media();?>/js/plugins/select2.min.js"></script>
         <?php
       }
     ?>

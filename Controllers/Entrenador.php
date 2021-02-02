@@ -4,6 +4,10 @@
         public function __construct()
         {
             parent::__construct();
+            session_start();
+            if(empty($_SESSION['login'])){
+                header('location: '.base_url().'/Auth/login');
+            }
         }
         public function ejercicios()
         {
@@ -99,6 +103,14 @@
                 echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
             }   
             die();
+        }
+
+        public function prototype()
+        {
+            $data['page_title'] = "Usuarios";
+            $data['js'] = 'ADDPROTOTYPE';
+            $data['page_tag'] = "Usuarios -  SoyNathaFit";
+            $this->views->getView($this, 'prototype', $data);
         }
                 
     }

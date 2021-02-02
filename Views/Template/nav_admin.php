@@ -14,7 +14,8 @@
       <ul class="treeview-menu">
         <li><a class="treeview-item" href="<?=base_url();?>/Rutinas/rutinas"><i class="icon fa fa-circle-o"></i>Rutinas</a></li>
         <li><a class="treeview-item" href="<?=base_url();?>/Entrenador/ejercicios"><i class="icon fa fa-circle-o"></i>Ejercicios</a></li>
-        <li><a class="treeview-item" href="<?=base_url();?>/Prototype/prototype"><i class="icon fa fa-circle-o"></i> Ver Prototipos</a></li>
+        <li><a class="treeview-item" href="<?=base_url();?>/Prototype/prototype"><i class="icon fa fa-circle-o"></i> Prototipos</a></li>
+        <li><a class="treeview-item" href="<?=base_url();?>/Entrenador/prototype"><i class="icon fa fa-circle-o"></i> Usuarios</a></li>
       </ul>
     </li>
     <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Nutricionistas</span><i class="treeview-indicator fa fa-angle-right"></i></a>
@@ -25,5 +26,8 @@
         <li><a class="treeview-item" href="<?=base_url();?>/PrototypeN/prototypen"><i class="icon fa fa-circle-o"></i> Ver Prototipos</a></li>
       </ul>
     </li>
+    <li><a class="app-menu__item" href="<?=base_url();?>/Client/routine"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Mis Rutinas</span></a></li>
+    <li><a class="app-menu__item" href="<?=base_url();?>/Client/diet"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Mis Dietas</span></a></li>
+    <li><a class="app-menu__item" href="<?=base_url();?>/Client/data"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Datos Personales</span></a></li>
   </ul>
 </aside>

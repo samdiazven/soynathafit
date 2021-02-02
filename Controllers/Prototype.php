@@ -4,6 +4,10 @@
         public function __construct()
         {
             parent::__construct();
+            session_start();
+            if(empty($_SESSION['login'])){
+                header('location: '.base_url().'/Auth/login');
+            }
         }
 
         public function prototype()
@@ -84,6 +88,34 @@
                 }
             }
             echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
+            die();
+        }
+        public function getUsers()
+        {
+            $arrData = $this->model->getUsers();
+            if(!empty($arrData)) 
+            {
+                for($i = 0; $i < count($arrData); $i++ )
+                {
+                    if(empty($arrData[$i]['id_prototype'])){
+                        $arrData[$i]['proto'] = "No hay datos Para Mostrar";
+                    }else {
+                        $proto = $this->model->getPrototype($arrData[$i]['id_prototype']);
+                        if(empty($proto)){
+                            $arrData[$i]['proto'] = "No hay Prototipo para Mostrar";
+                        }else {
+                            $arrData[$i]['proto'] = $proto['name'];
+                        }
+                    }
+                    
+                    $arrData[$i]['options'] = '<div class="text-center">
+                <button class="btn btn-info btn-sm" onclick="viewUser('.$arrData[$i]['id'].')"  title="Ver" ><i class="fa fa-eye"></i></button>
+                <button class="btn btn-success btn-sm" onclick="addPrototype('.$arrData[$i]['id'].')"  title="Cargar Prototipo" ><i class="fa fa-upload"></i></button>
+                                           </div>';
+                }
+                
+            echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
+            }
             die();
         }
     }

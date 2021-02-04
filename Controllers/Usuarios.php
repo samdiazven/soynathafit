@@ -120,6 +120,19 @@
             echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
             die();
         }
+        public function addPrototypeNutrition() {
+            $proto = intval($_POST['idPrototype']);
+            $user = intval($_POST['idUser']);
+            $request = $this->model->addPrototypeNutrition($user, $proto);
+            if(!empty($request))
+            {
+                $arrData = array('status' => true, 'msg' => 'Guardado Correctamente');
+            }else {
+                $arrData = array('status' => false, 'msg' => 'Oppps Hubo un Error' );
+            }
+            echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
+            die();
+        }
     }
 
 ?>

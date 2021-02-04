@@ -11,7 +11,7 @@
       <div class="modal-body">
         <div class="tile-body">
               <form id="formEjercicios" name="formEjercicios">
-                  <input type="hidden" id="dayOfWeek" name="dayOfWeek" value="">
+                  <input type="hidden" id="dayOfWeek" name="dayOfWeek" value="<?=$data['day'];?>">
                   <input type="hidden" id="idRoutine" name="idRoutine" value="">
                 <div class="form-group">
                     <label class="control-label">Ejercicio</label>

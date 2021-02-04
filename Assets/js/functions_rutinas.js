@@ -1,14 +1,18 @@
+var base_url = "http://localhost/soynathafit";
+$(document).ready(function(){
+    getRoutines();
+});
 const selectRoutine = id => {
     let title = document.querySelector('#titleRoutine');
     let titleDay = document.querySelector('#titleDay');
     let day = Number(document.querySelector('#dayOfWeek').value);
-    if(!day) day = 0;
     const urlRequest = `http://localhost/soynathafit/Rutinas/getRoutine/${id}`;
     fetch(urlRequest)
     .then(response => response.text())
     .then(data => JSON.parse(data))
     .then(data => {
-        title.innerHTML = `${data.data.name}`;
+        title.innerHTML = `${data.data.name} - Semana ${data.data.week}`;
+        console.log(day);
         getNameDay(day);
         getExercises(id, day);
         document.querySelector('#btnAgregar').classList.replace('disabled', 'enabled');
@@ -157,9 +161,7 @@ function openModal()
 }
 
 
-$(document).ready(function(){
-    getRoutines();
-});
+
 
 function getRoutines(){
     let routines = document.querySelector('#nameRoutines')
@@ -201,7 +203,6 @@ const changeDay = condition => {
     let dayOfWeek = document.querySelector('#dayOfWeek');
     const idRoutine = document.querySelector('#idRoutine').value;
     let day = Number(dayOfWeek.value);
-    if(!day) day = 0;
     if(day == 5){
         document.querySelector('#btnForward').classList.replace('enabled', 'disabled');
     }else{
@@ -230,25 +231,25 @@ const changeDay = condition => {
 const getNameDay = day => {
     let titleDay = document.querySelector('#titleDay');
     switch (day) {
-        case 0:
+        case 1:
             titleDay.innerHTML = 'Lunes';
             break;
-        case 1:
+        case 2:
             titleDay.innerHTML = 'Martes';
             break;
-        case 2:
+        case 3:
             titleDay.innerHTML = 'Miercoles';
             break;
-        case 3:
+        case 4:
             titleDay.innerHTML = 'Jueves';
             break;
-        case 4:
+        case 5:
             titleDay.innerHTML = 'Viernes';
             break;
-        case 5:
+        case 6:
             titleDay.innerHTML = 'Sabado';
             break;
-        case 6:
+        case 0:
             titleDay.innerHTML = 'Domingo';
         default:
             break;

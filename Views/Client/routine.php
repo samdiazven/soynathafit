@@ -5,7 +5,7 @@
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-envelope-o"></i> Rutinas  
+          <h1><i class="fa fa-free-code-camp"></i> Rutinas  
           </h1>
         </div>
         <ul class="app-breadcrumb breadcrumb">

@@ -70,5 +70,13 @@
             $request = $this->update($update, $array);
             return $request;
         }
+        public function addPrototypeNutrition(int $id, int $proto) {
+            $this->intPrototype = $proto;
+            $this->intId = $id;
+            $update = "UPDATE usuarios set id_prototype_nutricionista = ? WHERE id = $this->intId";
+            $array = array($this->intPrototype);
+            $request = $this->update($update, $array);
+            return $request;
+        }
     }
 ?>

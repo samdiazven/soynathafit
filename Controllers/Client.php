@@ -21,7 +21,7 @@
         {
             $data['page_tag'] = 'Mis Rutinas - SoyNathaFit';
             $data['js'] = 'Client';
-            $data['day'] = date('N') - 1;
+            $data['day'] = date('N');
             $this->views->getView($this, 'routine', $data);
         }
         public function diet()

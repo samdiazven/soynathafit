@@ -20,10 +20,9 @@
     </li>
     <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Nutricionistas</span><i class="treeview-indicator fa fa-angle-right"></i></a>
       <ul class="treeview-menu">
-        <li><a class="treeview-item" href="<?=base_url();?>/crearDieta"><i class="icon fa fa-circle-o"></i>Crear Dietas</a></li>
-        <li><a class="treeview-item" href="<?=base_url();?>/verDieta" target="_blank" rel="noopener"><i class="icon fa fa-circle-o"></i> Ver Dietas</a></li>
-        <li><a class="treeview-item" href="<?=base_url();?>/agregarAlimentos"><i class="icon fa fa-circle-o"></i>A&ntilde;adir Alimentos</a></li>
-        <li><a class="treeview-item" href="<?=base_url();?>/PrototypeN/prototypen"><i class="icon fa fa-circle-o"></i> Ver Prototipos</a></li>
+        <li><a class="treeview-item" href="<?=base_url();?>/Nutrition/diet"><i class="icon fa fa-circle-o"></i> Dietas</a></li>
+        <li><a class="treeview-item" href="<?=base_url();?>/Nutrition/prototype"><i class="icon fa fa-circle-o"></i>Prototipos de Nutricion</a></li>
+        <li><a class="treeview-item" href="<?=base_url();?>/Nutrition/users"><i class="icon fa fa-circle-o"></i> Usuarios</a></li>
       </ul>
     </li>
     <li><a class="app-menu__item" href="<?=base_url();?>/Client/routine"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Mis Rutinas</span></a></li>

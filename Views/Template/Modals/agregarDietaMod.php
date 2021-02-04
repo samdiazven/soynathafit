@@ -1,19 +1,19 @@
 <!-- Modal -->
-<div class="modal fade" id="modalRutinas" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="modalDiet" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Nueva Rutina</h5>
+        <h5 class="modal-title" id="exampleModalCenterTitle">Nuevo Plan Alimenticio</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div class="tile-body">
-              <form id="formRoutine" name="formRoutine">
+              <form id="formDiet" name="formDiet" enctype="multipart/form-data">
                 <div class="form-group">
                   <label class="control-label">Nombre</label>
-                  <input class="form-control" type="text" id="name" name="name" placeholder="Ingrese el nombre de la Rutina">
+                  <input class="form-control" type="text" id="name" name="name" placeholder="Ingrese el nombre del Plan">
                 </div>
                 <div class="form-group">
                   <label class="control-label">Descripci&oacute;n</label>
@@ -35,6 +35,10 @@
                     <option value="5">Semana 5</option>
                     <option value="6">Semana 6</option>
                   </select>
+                </div>
+                <div class="form-group">
+                    <label for="" class="control-label">Archivo</label>
+                    <input type="file" name="file" id="file" class="form-control">
                 </div>
                 
                 <div class="form-group">

@@ -40,7 +40,7 @@ const getExercises = (idRoutine, day) => {
                     <td ><b>${exercise.name}</b></td>
                     <td >${exercise.description}</td>
                     <td>${exercise.mode}</td>
-                    <td><button id="#btnVideo" onclick="openVideo('${exercise.uri}');" class="btn btn-success btn-sm">VER</button></td>
+                    <td><button id="#btnVideo" onclick="openVideo('${exercise.uri}');" class="btn btn-success btn-sm text-center"><i class="fa fa-chevron-right pl-2"></i></button></td>
                     </tr>
                     `;
         });

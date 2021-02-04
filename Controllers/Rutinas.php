@@ -16,6 +16,7 @@
             $data['page_tag'] = "Rutinas-SoyNathafit";
             $data['page_title'] = "Rutinas-SoyNathafit";
             $data['page_name'] = "Rutinas";
+            $data['day'] = date('N');
             $this->views->getView($this, 'rutinas', $data);
         }
         public function getRoutines()
@@ -23,7 +24,7 @@
             $arrData = $this->model->getRoutines();
             for($i=0; $i<count($arrData); $i++)
             {
-                $arrData[$i]['content'] = '<li class="nav-item" ><a class="nav-link btnRoutine btn btn-primary mr-2 ml-2 mt-1" onclick="selectRoutine('.$arrData[$i]['id'].');" rel="'.$arrData[$i]['id'].'">'.$arrData[$i]['name'].'</a></li>';
+                $arrData[$i]['content'] = '<li class="nav-item" ><a class="nav-link btnRoutine btn btn-primary mr-2 ml-2 mt-1" onclick="selectRoutine('.$arrData[$i]['id'].');" rel="'.$arrData[$i]['id'].'">'.$arrData[$i]['name'].' - '.$arrData[$i]['week'].'</a></li>';
             }
             echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
             die();

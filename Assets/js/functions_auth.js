@@ -1,3 +1,5 @@
+var base_url ="http://localhost/soynathafit";
+
 const formLogin = document.querySelector('#form-login');
 formLogin.onsubmit = e => {
     e.preventDefault();

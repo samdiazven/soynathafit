@@ -72,5 +72,16 @@
                 break;
         }
     }
-    
+    function getGrease(float $waist, string $gender, int $age) {
+        if($gender === "masculino") {
+            $formula = 0.567 * $waist + 0.101 + $age - 31.8;
+        }else {
+            $formula = 0.439 * $waist + 0.221 * $age - 9.4;
+        }
+        return $formula;
+    }
+    function getIMC(float $weight, float $height) {
+        $formula = $weight / $height ** 2;
+        return $formula;
+    }
 ?>

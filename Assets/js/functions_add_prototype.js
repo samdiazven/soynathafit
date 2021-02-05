@@ -1,3 +1,4 @@
+var base_url ="http://localhost/soynathafit";
 var tablaUsuarios;
 
 $(document).ready(function() {

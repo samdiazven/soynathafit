@@ -6,7 +6,7 @@ const selectRoutine = id => {
     let title = document.querySelector('#titleRoutine');
     let titleDay = document.querySelector('#titleDay');
     let day = Number(document.querySelector('#dayOfWeek').value);
-    const urlRequest = `http://localhost/soynathafit/Rutinas/getRoutine/${id}`;
+    const urlRequest = `${base_url}/Rutinas/getRoutine/${id}`;
     fetch(urlRequest)
     .then(response => response.text())
     .then(data => JSON.parse(data))
@@ -25,7 +25,7 @@ const selectRoutine = id => {
 
 ///Agregar Ejercicio
 const addExercise = () => {
-    let urlExercises = 'http://localhost/soynathafit/Entrenador/obtenerEjercicios';
+    let urlExercises = base_url+'/Entrenador/obtenerEjercicios';
     let btnValue = document.querySelector('#btnAgregar').value;
     let day = Number(document.querySelector('#dayOfWeek').value);
     let selectDay = document.querySelector('#daySelect').value = day;
@@ -49,7 +49,7 @@ const addExercise = () => {
     formEjercicios.addEventListener('submit', e => {
         e.preventDefault();
         const form = new FormData(formEjercicios);
-        let urlCreateExercise = 'http://localhost/soynathafit/Rutinas/insertExercises';
+        let urlCreateExercise = base_url+'/Rutinas/insertExercises';
         fetch(urlCreateExercise, {
             method: 'POST',
             body: form
@@ -75,7 +75,7 @@ const addExercise = () => {
 }
 ////Obtener Ejercicios
 const getExercises = (idRoutine, day) => {
-    let urlExercises = `http://localhost/soynathafit/Rutinas/exercisesByRoutine/${idRoutine}/${day}`;
+    let urlExercises = `${base_url}/Rutinas/exercisesByRoutine/${idRoutine}/${day}`;
     let tr = "";
     const tbody = document.querySelector('#listExercises');
     fetch(urlExercises)
@@ -110,7 +110,7 @@ const deleteExercise = id => {
     let dayOfWeek = document.querySelector('#dayOfweek').value 
     let routineId = document.querySelector('#idRoutine').value;
 
-    let urlDelete = `http://localhost/soynathafit/Rutinas/deleteExercise/${id}`;
+    let urlDelete = `${base_url}/Rutinas/deleteExercise/${id}`;
     swal({
         title: "Eliminar Ejercicio",
         text: "Realmente desea eliminar el Ejercicio?",
@@ -146,7 +146,7 @@ function openModal()
     $('#modalRutinas').modal('show');
 
 
-    let urlPrototypes = "http://localhost/soynathafit/Prototype/obtenerPrototipos";
+    let urlPrototypes = base_url+"/Prototype/obtenerPrototipos";
     let selectPrototypes = document.querySelector('#prototypeSelect');
     let options;
     fetch(urlPrototypes)
@@ -181,7 +181,7 @@ let form = document.querySelector('#formRoutine');
 form.addEventListener('submit', function(e){
     e.preventDefault();
     let data = new FormData(form);
-    let urlCreate = "http://localhost/soynathafit/Rutinas/createRoutine";
+    let urlCreate = base_url+"/Rutinas/createRoutine";
     fetch(urlCreate, {
         method: 'POST',
         body: data

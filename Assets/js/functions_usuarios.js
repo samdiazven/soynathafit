@@ -1,4 +1,5 @@
-const openModal = () => {
+var base_url = 'http://localhost/soynathafit';
+ openModal = () => {
     document.querySelector('#idUser').value = "";
     document.querySelector('#btnModal').innerHTML = "Guardar";
     document.querySelector('#titleModal').innerHTML = "Nuevo Usuario";

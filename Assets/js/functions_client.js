@@ -105,3 +105,35 @@ const openVideo = url => {
     $('#modalVideo iframe').attr('src', url);
 
 }
+
+///DIETAS
+
+const selectWeekN = week => {
+    const cardHeader = document.getElementById('cardHeader');
+    const cardBody = document.getElementById('cardBody');
+    fetch(`${base_url}/Client/getDiet/${week}`)
+    .then( res => res.text())
+    .then( res => JSON.parse(res))
+    .then(res => {
+        const {data, msg, status} = res;
+        if(status) {
+            cardHeader.innerHTML = `
+                <h3 class="text-center">${data.name} - Semana ${data.week}</h3>
+            `;
+            cardBody.innerHTML = `
+                <h5>Descripci&oacute;n </h5>
+                <p> ${data.description} </p>
+                <h5>Fecha de Creaci&oacute;n</h5>
+                <p> ${data.date} </p>
+                <h5>Dieta</h5>
+                <a class="btn btn-danger" href="${base_url}/Nutrition/downloadDiet/${data.file}"> <i class="fa fa-file"></i> </a>
+            `;
+        }else {
+            cardBody.innerHTML = "";
+            cardHeader.innerHTML = "";
+            swal('Oooops', msg, 'error');
+        }
+    })
+}
+
+

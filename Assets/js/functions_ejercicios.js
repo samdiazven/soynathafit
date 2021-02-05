@@ -1,3 +1,4 @@
+var base_url = 'http://localhost/soynathafit';
 ///RUTINAS/////
 function openModal(){
     $('#modalRutinas').modal('show');

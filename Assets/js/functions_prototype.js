@@ -1,3 +1,4 @@
+var base_url = 'http://localhost/soynathafit';
 function openModal(){
     document.querySelector('#idPrototype').value="";
     document.querySelector('#titleModal').innerHTML = "Agregar Ejercicio";

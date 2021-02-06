@@ -5,7 +5,7 @@
     <main class="app-content">
         <div class="app-title">
             <div>
-            <h1><i class="fa fa-envelope-o"></i> Planes de Alimentaci&oacute;n  
+            <h1><i class="fa fa-list-alt"></i> Planes de Alimentaci&oacute;n  
             </h1>
             </div>
             <ul class="app-breadcrumb breadcrumb">

@@ -37,11 +37,48 @@ const getUser = id => {
     return request;
 }
 
+const getData = id => {
+    const request = fetch(`${base_url}/Client/getDataPersonal/${id}`)
+    .then( res => res.text())
+    // .then( res => console.log(res))
+    .then( res => JSON.parse(res))
+    .then( res => {
+        return res.data;
+    });
+    return request;
+}
 const viewUser =  async id => {
     const user = await getUser(id);
+    const data = await getData(id);
     document.querySelector('#nameUser').innerHTML = user.name;
     document.querySelector('#emailUser').innerHTML = user.email;
     document.querySelector('#enableUser').innerHTML = (user.enable == 1) ? 'Habilitado' : 'Inhabilitado';
+    document.querySelector('#roleUser').innerHTML = (user.role == 1) ? 'Usuario' : 'Personal';
+    if(data){
+        document.querySelector('#peso').innerHTML = data.peso;
+        document.querySelector('#altura').innerHTML = data.altura;
+        document.querySelector('#edad').innerHTML = data.edad;
+        document.querySelector('#cintura').innerHTML = data.perimetro_cintura;
+        document.querySelector('#grasa').innerHTML = data.grasa;
+        document.querySelector('#imc').innerHTML = data.imc;
+        document.querySelector('#sexo').innerHTML = data.sexo;
+        document.querySelector('#operaciones').innerHTML = data.operaciones;
+        document.querySelector('#ultima-actividad').innerHTML = data.registro_actividad;
+        document.querySelector('#alergias').innerHTML = data.alergias;
+        document.querySelector('#patologias').innerHTML = data.patologia;
+    }else {
+        document.querySelector('#peso').innerHTML = "";
+        document.querySelector('#altura').innerHTML = "";
+        document.querySelector('#edad').innerHTML = "";
+        document.querySelector('#cintura').innerHTML = "";
+        document.querySelector('#grasa').innerHTML = "";
+        document.querySelector('#imc').innerHTML = "";
+        document.querySelector('#sexo').innerHTML = "";
+        document.querySelector('#operaciones').innerHTML = "";
+        document.querySelector('#ultima-actividad').innerHTML = "";
+        document.querySelector('#alergias').innerHTML = "";
+        document.querySelector('#patologias').innerHTML = "";
+    }
     $('#viewUserMod').modal('show');
 }
 

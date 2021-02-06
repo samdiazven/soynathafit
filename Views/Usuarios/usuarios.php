@@ -6,7 +6,7 @@
     <main class="app-content">
         <div class="app-title">
             <div>
-            <h1><i class="fa fa-dashboard"></i> <?=$data['page_title'];?>
+            <h1><i class="fa fa-users"></i> <?=$data['page_title'];?>
             <button class="btn btn-primary" type="button" onClick="addUser();" ><i class="fa fa-plus-circle">Nuevo</i> </button>
             </h1>
             </div>

@@ -5,7 +5,7 @@
     <main class="app-content">
         <div class="app-title">
             <div>
-            <h1><i class="fa fa-dashboard"></i> <?=$data['page_title'];?>
+            <h1><i class="fa fa-free-code-camp"></i> <?=$data['page_title'];?>
             <button class="btn btn-primary" type="button" onClick="openModalCrearEjercicio();" ><i class="fa fa-plus-circle"></i> Nueva</button>
             </h1>
             </div>

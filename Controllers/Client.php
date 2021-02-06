@@ -151,5 +151,17 @@
             echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
             die();
         }
+        public function getDataPersonal($id)
+        {
+            $request = $this->model->getData($id);
+            if(!empty($request))
+            {
+                $arrData = array('status' => true, 'data' => $request);
+            }else {
+                $arrData = array('status' => false);
+            }
+            echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
+            die();
+        }
     }
 ?>

@@ -4,7 +4,7 @@
 <main class="app-content">
     <div class="app-title">
         <div>
-        <h1><i class="fa fa-envelope-o"></i> Informaci&oacute;n Personal  
+        <h1><i class="fa fa-id-card"></i> Informaci&oacute;n Personal  
         </h1>
         </div>
         <ul class="app-breadcrumb breadcrumb">
